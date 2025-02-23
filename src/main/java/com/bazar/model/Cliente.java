@@ -15,7 +15,7 @@ public class Cliente {
     private String apellido;
     private String dni;
 
-    public Cliente() {
+    protected Cliente() {
     }
 
     public Cliente(Long id_cliente, String nombre, String apellido, String dni) {

@@ -19,7 +19,7 @@ public class Venta {
     @JoinColumn(name = "cliente_id_cliente")
     private Cliente cliente;
 
-    public Venta() {
+    protected Venta() {
     }
 
     public Venta(Long codigo_venta, LocalDate fecha_venta, Double total, List<Producto> listaProductos, Cliente cliente) {

@@ -18,7 +18,7 @@ public class Producto {
     private Double costo;
     private Double cantidad_disponible;
 
-    public Producto() {
+    protected Producto() {
     }
 
     public Producto(Long codigo_venta, String nombre, String marca, Double costo, Double cantidad_disponible) {
