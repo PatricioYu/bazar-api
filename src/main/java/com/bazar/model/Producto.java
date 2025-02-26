@@ -1,9 +1,6 @@
 package com.bazar.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,8 +10,10 @@ import lombok.Setter;
 public class Producto {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long codigo_venta;
+    @Column (nullable = false)
     private String nombre;
     private String marca;
+    @Column (nullable = false)
     private Double costo;
     private Double cantidad_disponible;
 

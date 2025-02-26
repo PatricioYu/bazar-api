@@ -11,8 +11,11 @@ import java.util.List;
 public class Venta {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long codigo_venta;
+    @Column (nullable = false)
     private LocalDate fecha_venta;
+    @Column (nullable = false)
     private Double total;
+    @Column (nullable = false)
     private List<Producto> listaProductos;
 
     @OneToOne
