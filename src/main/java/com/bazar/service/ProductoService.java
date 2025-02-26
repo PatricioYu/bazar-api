@@ -23,18 +23,18 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public Producto getProductoById(Long codigo_producto) {
-        return productoRepository.findById(codigo_producto).orElse(null);
+    public Producto getProductoById(Long codigoProducto) {
+        return productoRepository.findById(codigoProducto).orElse(null);
     }
 
     @Override
-    public void deleteProducto(Long codigo_producto) {
-        productoRepository.deleteById(codigo_producto);
+    public void deleteProducto(Long codigoProducto) {
+        productoRepository.deleteById(codigoProducto);
     }
 
     @Override
-    public void editProducto(Long codigo_producto, String nuevoNombre, String nuevaMarca, Double nuevoCosto, Double nuevaCantidadDisponible) {
-        Producto producto = this.getProductoById(codigo_producto);
+    public void editProducto(Long codigoProducto, String nuevoNombre, String nuevaMarca, Double nuevoCosto, Double nuevaCantidadDisponible) {
+        Producto producto = this.getProductoById(codigoProducto);
         producto.setNombre(nuevoNombre);
         producto.setMarca(nuevaMarca);
         producto.setCosto(nuevoCosto);

@@ -7,7 +7,7 @@ import java.util.List;
 public interface IProductoService {
     public void postProducto(Producto producto);
     public List<Producto> getAllProducto();
-    public Producto getProductoById(Long codigo_producto);
-    public void deleteProducto(Long codigo_producto);
-    public void editProducto(Long codigo_producto, String nombre, String marca, Double costo, Double cantidad_disponible);
+    public Producto getProductoById(Long codigoProducto);
+    public void deleteProducto(Long codigoProducto);
+    public void editProducto(Long codigoProducto, String nombre, String marca, Double costo, Double cantidadDisponible);
 }
