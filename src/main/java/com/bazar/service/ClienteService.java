@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ClienteService implements IClienteService {
     @Autowired
-    IClienteRepository clienteRepository;
+    private IClienteRepository clienteRepository;
 
 
     @Override

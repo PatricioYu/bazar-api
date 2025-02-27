@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class VentaService implements IVentaService{
     @Autowired
-    IVentaRepository ventaRepository;
+    private IVentaRepository ventaRepository;
 
     @Override
     public void postVenta(Venta venta) {
