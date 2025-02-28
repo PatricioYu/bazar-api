@@ -13,7 +13,6 @@ public class ClienteService implements IClienteService {
     @Autowired
     private IClienteRepository clienteRepository;
 
-
     @Override
     public void postCliente(Cliente cliente) {
         clienteRepository.save(cliente);
