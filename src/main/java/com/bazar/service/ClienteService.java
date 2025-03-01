@@ -1,6 +1,5 @@
 package com.bazar.service;
 
-import ch.qos.logback.core.net.server.Client;
 import com.bazar.model.Cliente;
 import com.bazar.repository.IClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,6 @@ package com.bazar.controller;
 
 import com.bazar.model.Producto;
 import com.bazar.service.IProductoService;
-import com.bazar.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
