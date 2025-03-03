@@ -8,20 +8,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter @Entity
-public class Cliente {
+public class Client {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id_cliente;
-    private String nombre;
-    private String apellido;
+    private Long id;
+    private String name;
+    private String surname;
     private String dni;
 
-    protected Cliente() {
+    protected Client() {
     }
 
-    public Cliente(Long id_cliente, String nombre, String apellido, String dni) {
-        this.id_cliente = id_cliente;
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Client(Long id, String name, String surname, String dni) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
         this.dni = dni;
     }
 }
