@@ -16,10 +16,11 @@ public class Sale {
     @Column (nullable = false)
     private Double total;
     @Column (nullable = false)
-    private List<Product> products_list;
-
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "id")
+    private List<Product> products_list;
+    @OneToOne
+    @JoinColumn(name = "client_id")
     private Client client;
 
     protected Sale() {}
