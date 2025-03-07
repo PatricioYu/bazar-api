@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/products")
 public class ProductController {
     private final IProductService intProdService;
 
@@ -14,27 +15,27 @@ public class ProductController {
         this.intProdService = intProdService;
     }
 
-    @PostMapping(path = "/products")
+    @PostMapping
     public void postProduct(@RequestBody Product product) {
         intProdService.postProduct(product);
     }
 
-    @GetMapping(path = "/products")
+    @GetMapping
     public List<Product> getAllProducts() {
         return intProdService.getAllProducts();
     }
 
-    @GetMapping(path = "/products/{id}")
+    @GetMapping(path = "/{id}")
     public Product getProductById(@PathVariable Long id) {
         return intProdService.getProductById(id);
     }
 
-    @DeleteMapping(path = "/products/{id}")
+    @DeleteMapping(path = "/{id}")
     public void deleteProductById(@PathVariable Long id) {
         intProdService.deleteProduct(id);
     }
 
-    @PutMapping(path = "/products/{id}")
+    @PutMapping(path = "/{id}")
     public void updateProduct(
             @PathVariable Long id,
             @RequestParam(required = false, name = "name") String newName,

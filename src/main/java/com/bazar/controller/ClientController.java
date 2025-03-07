@@ -35,7 +35,7 @@ public class ClientController {
         intClientService.deleteClient(id);
     }
 
-    @PutMapping (path = "/clients/{id}")
+    @PutMapping (path = "/{id}")
     public void editClient(
             @PathVariable Long id,
             @RequestParam(required = false, name = "name") String name,

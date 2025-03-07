@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/sales")
 public class SaleController {
     private final ISaleService intSaleService;
 
@@ -14,22 +15,22 @@ public class SaleController {
         this.intSaleService = intSaleService;
     }
 
-    @PostMapping(path = "/sales")
+    @PostMapping
     public void postSale(@RequestBody Sale sale) {
         intSaleService.postSale(sale);
     }
 
-    @GetMapping(path = "/sales")
+    @GetMapping
     public List<Sale> getAllSales() {
         return intSaleService.getAllSales();
     }
 
-    @GetMapping(path = "/sales/{id}")
+    @GetMapping(path = "/{id}")
     public Sale getSaleById(@PathVariable Long id) {
         return intSaleService.getSaleById(id);
     }
 
-    @DeleteMapping(path = "/sales/{id}")
+    @DeleteMapping(path = "/{id}")
     public void deleteSaleById(@PathVariable Long id) {
         intSaleService.deleteSale(id);
     }
