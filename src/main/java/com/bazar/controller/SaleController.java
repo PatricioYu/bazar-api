@@ -2,15 +2,17 @@ package com.bazar.controller;
 
 import com.bazar.model.Sale;
 import com.bazar.service.ISaleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class SaleController {
-    @Autowired
-    private ISaleService intSaleService;
+    private final ISaleService intSaleService;
+
+    public SaleController(ISaleService intSaleService) {
+        this.intSaleService = intSaleService;
+    }
 
     @PostMapping(path = "/sales")
     public void postSale(@RequestBody Sale sale) {

@@ -2,32 +2,35 @@ package com.bazar.controller;
 
 import com.bazar.model.Client;
 import com.bazar.service.IClientService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping ("/clients")
 public class ClientController {
-    @Autowired
-    private IClientService intClientService;
+    private final IClientService intClientService;
 
-    @PostMapping (path = "/clients")
+    public ClientController(IClientService intClientService) {
+        this.intClientService = intClientService;
+    }
+
+    @PostMapping
     public void postClient(@RequestBody Client cliente) {
         intClientService.postClient(cliente);
     }
 
-    @GetMapping (path = "/clients")
+    @GetMapping
     public List<Client> getAllClients() {
         return intClientService.getAllClients();
     }
 
-    @GetMapping (path = "/clients/{id}")
+    @GetMapping (path = "/{id}")
     public Client getClientById(@PathVariable Long id) {
         return intClientService.getClientById(id);
     }
 
-    @DeleteMapping (path = "/clients/{id}")
+    @DeleteMapping (path = "/{id}")
     public void deleteClientById(@PathVariable Long id) {
         intClientService.deleteClient(id);
     }

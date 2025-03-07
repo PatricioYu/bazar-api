@@ -2,15 +2,17 @@ package com.bazar.service;
 
 import com.bazar.model.Client;
 import com.bazar.repository.IClientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ClientService implements IClientService {
-    @Autowired
-    private IClientRepository clientRepository;
+    private final IClientRepository clientRepository;
+
+    public ClientService(IClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
+    }
 
     @Override
     public void postClient(Client client) {

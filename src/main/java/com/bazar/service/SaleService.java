@@ -2,15 +2,17 @@ package com.bazar.service;
 
 import com.bazar.model.Sale;
 import com.bazar.repository.ISaleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class SaleService implements ISaleService {
-    @Autowired
-    private ISaleRepository saleRepository;
+    private final ISaleRepository saleRepository;
+
+    public SaleService(ISaleRepository saleRepository) {
+        this.saleRepository = saleRepository;
+    }
 
     @Override
     public void postSale(Sale sale) {
