@@ -2,12 +2,15 @@ package com.bazar.controller;
 
 import com.bazar.model.Product;
 import com.bazar.service.IProductService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/products")
+@RequestMapping(path = "/products",
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProductController {
     private final IProductService intProdService;
 

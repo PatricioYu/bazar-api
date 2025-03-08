@@ -2,12 +2,15 @@ package com.bazar.controller;
 
 import com.bazar.model.Client;
 import com.bazar.service.IClientService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping ("/clients")
+@RequestMapping (path = "/clients",
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
 public class ClientController {
     private final IClientService intClientService;
 
@@ -16,8 +19,8 @@ public class ClientController {
     }
 
     @PostMapping
-    public void postClient(@RequestBody Client cliente) {
-        intClientService.postClient(cliente);
+    public void postClient(@RequestBody Client client) {
+        intClientService.postClient(client);
     }
 
     @GetMapping
