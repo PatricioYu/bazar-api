@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  bazar-app:
+    build: bazar
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://bazar:3306/bazar?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      bazar:
+        condition: service_healthy
+    restart: always
+
+  bazar:
+    image: mysql:8.0  # Specific version for reproducibility
+    environment:      # DB configuration through env vars (secure in production)
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: bazar
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"   # Expose to host for local development access
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:      # Ensures app only starts after DB is ready
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    restart: always
+
+volumes:
+  mysql_data:

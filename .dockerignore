@@ -1,0 +1,33 @@
+# .dockerignore
+
+# Version control
+.git/
+.gitignore
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Build outputs
+target/
+bin/
+build/
+
+# Environment/configs
+.env
+*.properties
+*.yml
+config/
+
+# Documentation
+*.md
+LICENSE
+
+# Logs and temp files
+*.log
+tmp/
+
+# Frontend assets (if applicable)
+node_modules/
+dist/
