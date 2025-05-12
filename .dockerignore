@@ -10,7 +10,6 @@
 .vscode/
 
 # Build outputs
-target/
 bin/
 build/
 
