@@ -35,7 +35,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void editProduct(Long id, String newName, String newBrand, Double newPrice, Double newUnitsInStock) {
+    public void editProduct(Long id, String newName, String newBrand, Double newPrice, Integer newUnitsInStock) {
         Product product = this.getProductById(id);
         product.setName(newName);
         product.setBrand(newBrand);

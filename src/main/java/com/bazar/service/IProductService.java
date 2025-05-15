@@ -9,5 +9,5 @@ public interface IProductService {
     public List<Product> getAllProducts();
     public Product getProductById(Long id);
     public void deleteProduct(Long id);
-    public void editProduct(Long id, String newName, String newBrand, Double newPrice, Double newUnitsInStock);
+    public void editProduct(Long id, String newName, String newBrand, Double newPrice, Integer newUnitsInStock);
 }

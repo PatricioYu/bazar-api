@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Getter
 @Setter
 @Entity
@@ -15,13 +17,15 @@ public class Product {
     private String brand;
     @Column (nullable = false)
     private Double price;
-    private Double units_in_stock;
+    private Integer units_in_stock;
+
+    @Version
+    private Integer version;
 
     protected Product() {
     }
 
-    public Product(Long id, String name, String brand, Double price, Double units_in_stock) {
-        this.id = id;
+    public Product(String name, String brand, Double price, Integer units_in_stock) {
         this.name = name;
         this.brand = brand;
         this.price = price;

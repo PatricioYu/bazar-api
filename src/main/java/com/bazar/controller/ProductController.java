@@ -9,8 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/products",
-        consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE)
+
 public class ProductController {
     private final IProductService intProdService;
 
@@ -44,7 +44,7 @@ public class ProductController {
             @RequestParam(required = false, name = "name") String newName,
             @RequestParam(required = false, name = "brand") String newBrand,
             @RequestParam(required = false, name = "price") Double newPrice,
-            @RequestParam(required = false, name = "unitsInStock") Double newUnitsInStock) {
+            @RequestParam(required = false, name = "unitsInStock") Integer newUnitsInStock) {
         intProdService.editProduct(id, newName, newBrand, newPrice, newUnitsInStock);
     }
 }

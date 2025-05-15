@@ -21,8 +21,7 @@ services:
     environment:      # DB configuration through env vars (secure in production)
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: bazar
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+
     healthcheck:      # Ensures app only starts after DB is ready
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 10s

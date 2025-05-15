@@ -15,18 +15,23 @@ public class Sale {
     private LocalDate sales_date;
     @Column (nullable = false)
     private Double total;
-    @Column (nullable = false)
-    @OneToMany
-    @JoinColumn(name = "id")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "sale_product",
+            joinColumns = @JoinColumn(name = "sale_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<Product> products_list;
-    @OneToOne
-    @JoinColumn(name = "client_id")
+    @ManyToOne
+    @JoinColumn(name = "id_client")
     private Client client;
+
+    @Version
+    private Integer version;
 
     protected Sale() {}
 
-    public Sale(Long id, LocalDate sales_date, Double total, List<Product> products_list, Client client) {
-        this.id = id;
+    public Sale(LocalDate sales_date, Double total, List<Product> products_list, Client client) {
         this.sales_date = sales_date;
         this.total = total;
         this.products_list = products_list;
