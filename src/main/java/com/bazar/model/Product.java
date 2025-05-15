@@ -19,8 +19,8 @@ public class Product {
     private Double price;
     private Integer units_in_stock;
 
-    @Version
-    private Integer version;
+//    @Version
+//    private Integer version;
 
     protected Product() {
     }
